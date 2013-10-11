@@ -1,0 +1,28 @@
+.jvFloat {
+	position: relative;
+	display: inline;
+	margin-top: 1.2em;
+}
+.jvFloat .placeHolder {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #0c61fc;
+	font-size: .8em;
+	font-weight: bold;
+	-webkit-transition: -webkit-transform 100ms, opacity 120ms;
+	transition: transform 100ms, opacity 120ms;
+	opacity: 0;
+	visibility: hidden;
+}
+.jvFloat .placeHolder.active {
+	visibility: visible;
+	-webkit-transform: translate(0, -1em);
+	-moz-transform: translate(0, -1em);
+	-o-transform: translate(0, -1em);
+	-ms-transform: translate(0, -1em);
+	transform: translate(0, -1em);
+	-webkit-transition: -webkit-transform 100ms, opacity 120ms;
+	transition: transform 100ms, opacity 120ms;
+	opacity: 1;
+}
