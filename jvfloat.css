@@ -1,8 +1,15 @@
+/*
+ * Default jvFloat theme.
+ * modify it as you wish!
+ */
+
 .jvFloat {
 	position: relative;
 	display: inline;
-	margin-top: 1.2em;
+	margin-top: 1em;
 }
+
+/* Start CSS3 Animations on supported browser */
 .jvFloat .placeHolder {
 	position: absolute;
 	top: 0;
@@ -10,12 +17,18 @@
 	color: #0c61fc;
 	font-size: .8em;
 	font-weight: bold;
-	-webkit-transition: -webkit-transform 100ms, opacity 120ms;
-	transition: transform 100ms, opacity 120ms;
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	transform: translate(0, 0);
+	-webkit-transition: -webkit-transform 150ms, opacity 5s;
+	transition: transform 150ms, opacity 5s;
 	opacity: 0;
 	visibility: hidden;
 }
 .jvFloat .placeHolder.active {
+	display: block;
 	visibility: visible;
 	-webkit-transform: translate(0, -1em);
 	-moz-transform: translate(0, -1em);
@@ -26,3 +39,22 @@
 	transition: transform 100ms, opacity 120ms;
 	opacity: 1;
 }
+/* End CSS3 */
+
+/* Legacy browser */
+/*.jvFloat .placeHolder {
+	position: absolute;
+	top: -1em;
+	left: 0;
+	color: #0c61fc;
+	font-size: .85em;
+	font-weight: bold;
+	opacity: 0;
+	visibility: hidden;
+}
+.jvFloat .placeHolder.active {
+	display: block;
+	visibility: visible;
+	opacity: 1;
+}*/
+/* End Legacy */

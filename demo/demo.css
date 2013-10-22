@@ -1,3 +1,14 @@
+/*
+ * only for demo purpose. don't take this file too seriously.
+ */
+
 body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	margin-top: 5em;
+}
+input {
+	outline: none;
+}
+div {
+	padding: .2em 0;
 }

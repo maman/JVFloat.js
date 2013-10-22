@@ -1,7 +1,12 @@
+/*
+ * JVFloat.js
+ * modified on: 10/23/2013
+ */
+
 (function($) {
 	// Init Plugin Functions
 	$.fn.jvFloat = function() {
-		// Check input type
+		// Check input type - filter submit buttons.
 		return this.filter('input').each(function() {
 			// store placeholder text in placeHolder Variable
 			var placeholderText = $(this).attr('placeholder');
@@ -11,7 +16,7 @@
 			$(this).before('<span class=placeHolder>' + placeholderText);
 			// change span.placeHolder to span.placeHolder.active
 			$(this).bind('keyup blur', function() {
-				if ($(this).val() == '') {
+				if ($(this).val() === '') {
 					$(this).siblings('.placeHolder').removeClass('active');
 				} else {
 					$(this).siblings('.placeHolder').addClass('active');
