@@ -42,16 +42,16 @@ this section performs styling on the `span.placeHolder` element inside `div.jvFl
 **Rules that you mustn't remove**: `position: absolute;`, `display: none;`, `visibility: hidden;`, `opacity: 0;`
 
 ### `.jvFloat .placeHolder.active`
-the active state of the aftermentioned section. its job are to display the hidden `span.placeHolder` when users is typing on the `input`.
+the active state of the aftermentioned section. its job are to display the hidden `span.placeHolder` when users is typing on the `input`.  
 **Rules that you mustn't remove**: `display: block;`, `visibility: visible;`, `opacity: 1`
 
 ## Another Notes on CSS
 JVFloat uses CSS3 [Transform](https://developer.mozilla.org/en-US/docs/Web/CSS/transform) and [Transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/transition) to perform the animations by default. Browsers that doesn't support those will simply doesn't show anything when user typing on the `input` elements. to fix that, enable/uncomment the `legacy` rules on the default CSS file, and comment out the `CSS3` rules.
 
 #TODO
-* -Better CSS Animations- *need your suggestion on this one, btw*
+* ~~Better CSS Animations~~ *need your suggestion on this one, btw*
 * Better plugin code
-* -Write better docs-
+* ~~Write better docs~~
 
 #Changelog
 * 10/23/2013 - Fix the bug where JVFloat process all `input` elements, including `submit`, fix the animations &mdash; it's noticeably smoother! &mdash; and I'm adding more detailed documentations.
