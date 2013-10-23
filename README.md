@@ -1,4 +1,4 @@
-#JVFloat.js
+#JVFloat.js - [Demo](http://bootsnipp.com/iframe/OvV)
 jQuery and Zepto plugin to emulate the behavior of [JVFloatLabeledTextField](https://github.com/jverdi/JVFloatLabeledTextField) which based on the concept from [Matt D. Smith](http://dribbble.com/shots/1254439--GIF-Mobile-Form-Interaction?list=users).
 Read more on [The Blog post](http://blog.mahardi.me/2013/10/14/jvfloatjs---the-experiment-with-form-accessbility-and-ux-in-html5/)
 
