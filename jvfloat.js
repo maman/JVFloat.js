@@ -14,7 +14,7 @@
 			$(this).wrap('<div class=jvFloat>');
 			// Store the placeholder text in span.placeHolder
 			// added `required` input detection and state
-			if ($(this).attr("required")) {
+			if ($(this).attr('required')) {
 				$(this).before("<span class='placeHolder required'>" + placeholderText);
 			} else {
 				$(this).before('<span class=placeHolder>' + placeholderText);

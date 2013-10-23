@@ -9,8 +9,7 @@
 	margin-top: 1em;
 }
 
-.jvFloat .placeHolder.required:after {
-	content: '*';
+.jvFloat .placeHolder.required {
 	color: red;
 }
 

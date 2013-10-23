@@ -42,7 +42,7 @@ this section performs styling on the `span.placeHolder` element inside `div.jvFl
 **Rules that you mustn't remove**: `position: absolute;`, `display: none;`, `visibility: hidden;`, `opacity: 0;`
 
 ### `.jvFloat .placeHolder.required`
-the styling of the `required` placeholder. The default color is simply `red`, with asterisk sign.
+the styling of the `required` placeholder. The default color is simply `red`.
 
 ### `.jvFloat .placeHolder.active`
 the active state of the aftermentioned section. its job are to display the hidden `span.placeHolder` when users is typing on the `input`.  
