@@ -9,11 +9,17 @@
 	margin-top: 1em;
 }
 
+.jvFloat .placeHolder.required:after {
+	content: '*';
+	color: red;
+}
+
 /* Start CSS3 Animations on supported browser */
 .jvFloat .placeHolder {
 	position: absolute;
 	top: 0;
 	left: 0;
+	width: auto;
 	color: #0c61fc;
 	font-size: .8em;
 	font-weight: bold;

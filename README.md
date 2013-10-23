@@ -41,6 +41,9 @@ this section performs styling on the `div.jvFloat` wrapper around the `input` ge
 this section performs styling on the `span.placeHolder` element inside `div.jvFloat`, where the copy of `input` placeholder text was stored. it's hidden by default.  
 **Rules that you mustn't remove**: `position: absolute;`, `display: none;`, `visibility: hidden;`, `opacity: 0;`
 
+### `.jvFloat .placeHolder.required`
+the styling of the `required` placeholder. The default color is simply `red`, with asterisk sign.
+
 ### `.jvFloat .placeHolder.active`
 the active state of the aftermentioned section. its job are to display the hidden `span.placeHolder` when users is typing on the `input`.  
 **Rules that you mustn't remove**: `display: block;`, `visibility: visible;`, `opacity: 1`
@@ -54,5 +57,5 @@ JVFloat uses CSS3 [Transform](https://developer.mozilla.org/en-US/docs/Web/CSS/t
 * ~~Write better docs~~
 
 #Changelog
-* 10/23/2013 - Fix the bug where JVFloat process all `input` elements, including `submit`, fix the animations &mdash; it's noticeably smoother! &mdash; and I'm adding more detailed documentations.
+* 10/23/2013 - Fix the bug where JVFloat process all `input` elements, including `submit`, fix the animations &mdash; it's noticeably smoother! &mdash;, add support for `required` inputs, and I'm adding more detailed documentations.
 * 10/12/2013 - First Commit
