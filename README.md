@@ -21,7 +21,9 @@ JVFloat consist of two parts, `jvfloat.js` and `jvfloat.css`. the minified versi
 	<script src="js/jvfloat.min.js"></script>
 </body>
 ```
-I strongly advise you to modify the default CSS file to reflect your current page, as the default CSS only consists the essential element that makes the placeholder showing and hiding animations. Please read the full CSS documentations avalaible below before you make any edit to the CSS file.
+I strongly advise you to modify the default CSS file to reflect your current page, as the default CSS only consists the essential element that makes the placeholder showing and hiding animations. Please read the full CSS documentations avalaible below before you make any edit to the CSS file.  
+
+Now JVFloat is installable via [Bower](http://bower.io): `bower install JVFloat`
 
 ## Initialization
 JVFloat can be initialized by calling `jvFloat()` functions, for example:
