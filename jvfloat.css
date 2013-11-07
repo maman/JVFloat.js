@@ -27,8 +27,8 @@
 	-o-transform: translate(0, 0);
 	-ms-transform: translate(0, 0);
 	transform: translate(0, 0);
-	-webkit-transition: -webkit-transform 150ms, opacity 5s;
-	transition: transform 150ms, opacity 5s;
+	-webkit-transition: -webkit-transform 150ms, opacity 100ms, visibility 100ms;
+	transition: transform 150ms, opacity 100ms, visibility 100ms;
 	opacity: 0;
 	visibility: hidden;
 }
@@ -40,8 +40,8 @@
 	-o-transform: translate(0, -1em);
 	-ms-transform: translate(0, -1em);
 	transform: translate(0, -1em);
-	-webkit-transition: -webkit-transform 100ms, opacity 120ms;
-	transition: transform 100ms, opacity 120ms;
+	-webkit-transition: -webkit-transform 100ms, opacity 120ms, visibility 120ms;
+	transition: transform 100ms, opacity 120ms, visibility 120ms;
 	opacity: 1;
 }
 /* End CSS3 */
