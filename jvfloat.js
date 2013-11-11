@@ -7,7 +7,7 @@
 	// Init Plugin Functions
 	$.fn.jvFloat = function() {
 		// Check input type - filter submit buttons.
-		return this.filter('input:not([type=submit])').each(function() {
+		return this.filter('input:not([type=submit]), textarea').each(function() {
 			// store placeholder text in placeHolder Variable
 			var placeholderText = $(this).attr('placeholder');
 			// Wrap the input in div.jvFloat
