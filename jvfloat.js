@@ -1,6 +1,6 @@
 /*
  * JVFloat.js
- * modified on: 10/23/2013
+ * modified on: 11/12/2013
  */
 
 (function($) {
@@ -18,6 +18,11 @@
 				$(this).before("<span class='placeHolder required'>" + placeholderText);
 			} else {
 				$(this).before('<span class=placeHolder>' + placeholderText);
+			}
+			// checks to see if inputs are pre-populated and adds active to span.placeholder
+			if ($(this).val() != '') {
+				$(this).siblings('.placeHolder').addClass('active');
+				$(this).parent().addClass('active');
 			}
 			// change span.placeHolder to span.placeHolder.active
 			$(this).bind('keyup blur', function() {
