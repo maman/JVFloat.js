@@ -19,6 +19,11 @@
 			} else {
 				$(this).before('<span class=placeHolder>' + placeholderText);
 			}
+			// checks to see if inputs are pre-populated and adds active to span.placeholder
+			if ($(this).val() != '') {
+				$(this).siblings('.placeHolder').addClass('active');
+				$(this).parent().addClass('active');
+			}
 			// change span.placeHolder to span.placeHolder.active
 			$(this).bind('keyup blur', function() {
 				if ($(this).val() === '') {
