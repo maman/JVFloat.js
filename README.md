@@ -61,6 +61,8 @@ JVFloat uses CSS3 [Transform](https://developer.mozilla.org/en-US/docs/Web/CSS/t
 * ~~Write better docs~~
 
 #Changelog
+
+* 21/12/2013 - Code refactoring. thanks to @eskimoblood for the pull request
 * 11/08/2013 - Add animation when user switch to another form element, thanks to @gabceb for the pull request.
 * 10/23/2013 - Fix the bug where JVFloat process all `input` elements, including `submit`, fix the animations &mdash; it's noticeably smoother! &mdash;, add support for `required` inputs, and I'm adding more detailed documentations.
 * 10/12/2013 - First Commit
