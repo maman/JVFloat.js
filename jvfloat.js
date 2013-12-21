@@ -1,6 +1,6 @@
 /*
  * JVFloat.js
- * modified on: 11/14/2013
+ * modified on: 12/21/2013
  */
 
 (function($) {
