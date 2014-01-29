@@ -6,25 +6,10 @@
 (function($) {
   "use strict";
   
-  var generateUIDNotMoreThan1million = function() {
-    do {
-      var id = ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).substr(-4);
-    } while (!!$('#' + id).length);
-    
-    return id;
-  };
-  var createIdOnElement = function($el) {
-    var id = generateUIDNotMoreThan1million();
-    
-    $el.prop('id', id);
-    
-    return id;
-  };
-  
   // Init Plugin Functions
   $.fn.jvFloat = function() {
     // Check input type - filter submit buttons.
-    return this.filter('input:not([type=submit])').each(function() {
+		return this.filter('input:not([type=submit]), textarea').each(function() {
       // Wrap the input in div.jvFloat
       var $el = $(this)
         .wrap('<div class=jvFloat>');
@@ -45,6 +30,20 @@
       // change span.placeHolder to span.placeHolder.active
         placeholder.toggleClass('active', $el.val() !== '');
       }
+      function generateUIDNotMoreThan1million() {
+        do {
+          var id = ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).substr(-4);
+        } while (!!$('#' + id).length);
+        
+        return id;
+      };
+      function createIdOnElement($el) {
+        var id = generateUIDNotMoreThan1million();
+        
+        $el.prop('id', id);
+        
+        return id;
+      };
     });
   };
 // Make Zeptojs & jQuery Compatible

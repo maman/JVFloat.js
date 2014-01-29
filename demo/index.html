@@ -6,17 +6,19 @@
 	<link rel="stylesheet" href="demo.css">
 	<link rel="stylesheet" href="../jvfloat.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-	<script src="../jvfloat.min.js"></script>
+	<script src="../jvfloat.js"></script>
 </head>
 <body>
     <input type="text" placeholder="test" class="testBox">
     <input type="email" placeholder="email" class="testBox">
     <input type="text" placeholder="Username">
     <input type="text" placeholder="Required" required>
-    <input type="text" placeholder="Has ID" id="testid">  
+    <input type="text" placeholder="Has ID" id="testid">
+    <textarea placeholder="Textarea!"></textarea>
+    <textarea placeholder="Textarea with id!" id="textarea"></textarea>
     <input type="submit">
 </body>
 <script>
-	$('input').jvFloat();
+	$('input, textarea').jvFloat();
 </script>
 </html>
