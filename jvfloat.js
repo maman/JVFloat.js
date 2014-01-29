@@ -9,7 +9,7 @@
   var generateUIDNotMoreThan1million = function() {
     do {
       var id = ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).substr(-4);
-    } while (!!$('#'+id).length);
+    } while (!!$('#' + id).length);
     
     return id;
   };
@@ -36,7 +36,7 @@
       // Store the placeholder text in span.placeHolder
       // added `required` input detection and state
       var required = $el.attr('required') || '';
-      var placeholder = $('<label class="placeHolder ' + required + '" for="'+forId+'">' + $el.attr('placeholder') + '</label>')
+      var placeholder = $('<label class="placeHolder ' + required + '" for="' + forId + '">' + $el.attr('placeholder') + '</label>')
         .insertBefore($el);
       // checks to see if inputs are pre-populated and adds active to span.placeholder
       setState();
