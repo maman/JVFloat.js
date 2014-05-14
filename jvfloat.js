@@ -1,6 +1,6 @@
 /*
  * JVFloat.js
- * modified on: 29/01/2014
+ * modified on: 14/05/2014
  */
 
 (function($) {
@@ -21,8 +21,16 @@
       // Store the placeholder text in span.placeHolder
       // added `required` input detection and state
       var required = $el.attr('required') || '';
-      var placeholder = $('<label class="placeHolder ' + required + '" for="' + forId + '">' + $el.attr('placeholder') + '</label>')
+      
+      // adds a different class tag for text areas (.jvFloat .placeHolder.textarea) 
+      // to allow better positioning of the element for multiline text area inputs 
+      if( $(this).is("textarea") ) {
+		  var placeholder = $('<label class="placeHolder ' + ' textarea ' + required + '" for="' + forId + '">' + $el.attr('placeholder') + '</label>')
         .insertBefore($el);
+	} else {
+		  var placeholder = $('<label class="placeHolder ' + required + '" for="' + forId + '">' + $el.attr('placeholder') + '</label>')
+	.insertBefore($el);
+	}
       // checks to see if inputs are pre-populated and adds active to span.placeholder
       setState();
       $el.bind('keyup blur', setState);
