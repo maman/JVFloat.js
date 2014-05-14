@@ -32,6 +32,14 @@
 	opacity: 0;
 	visibility: hidden;
 }
+
+/*Allows textarea floating placeholder to be positioned distinctly from the normal .placeHolder class
+ * This is required when working with Multiline text areas
+ */
+.jvFloat .placeHolder.textarea {
+	/*top: 0px;*/
+}
+
 .jvFloat .placeHolder.active {
 	display: block;
 	visibility: visible;
