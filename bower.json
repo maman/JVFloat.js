@@ -1,7 +1,7 @@
 {
   "name": "JVFloat",
   "main": "jvfloat.min.js, jvfloat.css",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "homepage": "http://maman.github.io/JVFloat.js",
   "authors": [
     "Achmad Mahardi <achmad@mahardi.me>"
