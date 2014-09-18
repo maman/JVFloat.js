@@ -53,6 +53,21 @@ module.exports = function(grunt) {
           'jvfloat.min.js': 'jvfloat.js'
         }
       }
+    },
+
+    // Bump Config
+    bump: {
+      options: {
+        files: ['bower.json', 'package.json'],
+        commit: true,
+        commitMessage: 'Release v%VERSION%',
+        commitFiles: ['-a'],
+        createTag: true,
+        tagName: 'v%VERSION%',
+        tagMessage: 'Version %VERSION%',
+        push: true,
+        pushTo: 'upstream'
+      }
     }
   });
 
@@ -64,6 +79,4 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('default', ['watch']);
-}
-
-
+};
