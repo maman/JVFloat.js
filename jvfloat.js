@@ -9,10 +9,32 @@
   // Init Plugin Functions
   $.fn.jvFloat = function () {
     // Check input type - filter submit buttons.
-    return this.filter('input:not([type=submit]), textarea').each(function() {
+    return this.filter('input:not([type=submit]), textarea, select').each(function() {
+      function getPlaceholderText($el) {
+        var text = $el.attr('placeholder');
+
+        if (typeof text == 'undefined') {
+            text = $el.attr('title');
+        }
+
+        return text;
+      }
       function setState () {
         // change span.placeHolder to span.placeHolder.active
-        placeholder.toggleClass('active', $el.val() !== '');
+        var currentValue = $el.val();
+
+        if (currentValue == null) {
+          currentValue = '';
+        }
+        else if ($el.is('select')) {
+          var placeholderValue = getPlaceholderText($el);
+
+          if (placeholderValue == currentValue) {
+            currentValue = '';
+          }
+        }
+
+        placeholder.toggleClass('active', currentValue !== '');
       }
       function generateUIDNotMoreThan1million () {
         var id = '';
@@ -37,10 +59,12 @@
       // adds a different class tag for text areas (.jvFloat .placeHolder.textarea) 
       // to allow better positioning of the element for multiline text area inputs
       var placeholder = '';
-      if( $(this).is('textarea') ) {
-        placeholder = $('<label class="placeHolder ' + ' textarea ' + required + '" for="' + forId + '">' + $el.attr('placeholder') + '</label>').insertBefore($el);
+      var placeholderText = getPlaceholderText($el);
+
+      if ($(this).is('textarea')) {
+        placeholder = $('<label class="placeHolder ' + ' textarea ' + required + '" for="' + forId + '">' + placeholderText + '</label>').insertBefore($el);
       } else {
-        placeholder = $('<label class="placeHolder ' + required + '" for="' + forId + '">' + $el.attr('placeholder') + '</label>').insertBefore($el);
+        placeholder = $('<label class="placeHolder ' + required + '" for="' + forId + '">' + placeholderText + '</label>').insertBefore($el);
       }
       // checks to see if inputs are pre-populated and adds active to span.placeholder
       setState();
