@@ -12,15 +12,20 @@
   $.fn.jvFloat = function _jv_float_plugin() {
     // Check input type - filter submit buttons.
     return this.filter('input:not([type=submit]), textarea, select').each(function _jv_float_each() {
-      function getPlaceholderText($el) {
-        var text = $el.attr('placeholder');
+      var $el = $(this),
+        el = $el[0], // native element
+        placeholder = el.getAttribute("placeholder") || el.getAttribute("title"), // get placeholder with native function
+        forId = $el.attr('id'),
 
-        if (typeof text == 'undefined') {
-          text = $el.attr('title');
-        }
+        // added `required` input detection and state
+        required = $el.attr('required') || '';
 
-        return text;
-      }
+      // Wrap the input in div.jvFloat
+      $el.wrap('<div class=jvFloat>');
+
+      // adds a different class tag for text areas (.jvFloat .placeHolder.textarea) 
+      // to allow better positioning of the element for multiline text area inputs
+      var $label = '';
 
       function setState() {
         // change span.placeHolder to span.placeHolder.active
@@ -29,14 +34,12 @@
         if (currentValue == null) {
           currentValue = '';
         } else if ($el.is('select')) {
-          var placeholderValue = getPlaceholderText($el);
-
-          if (placeholderValue == currentValue) {
+          if (placeholder == currentValue) {
             currentValue = '';
           }
         }
 
-        placeholder.toggleClass('active', currentValue !== '');
+        $label.toggleClass('active', currentValue !== '');
       }
 
       /**
@@ -56,25 +59,14 @@
         $el.prop('id', id);
         return id;
       }
-      // Wrap the input in div.jvFloat
-      var $el = $(this).wrap('<div class=jvFloat>');
-      var forId = $el.attr('id');
       if (!forId) {
         forId = createIdOnElement($el);
       }
-      // Store the placeholder text in span.placeHolder
-      // added `required` input detection and state
-      var required = $el.attr('required') || '';
-
-      // adds a different class tag for text areas (.jvFloat .placeHolder.textarea) 
-      // to allow better positioning of the element for multiline text area inputs
-      var placeholder = '';
-      var placeholderText = getPlaceholderText($el);
 
       if ($(this).is('textarea')) {
-        placeholder = $('<label class="placeHolder ' + ' textarea ' + required + '" for="' + forId + '">' + placeholderText + '</label>').insertBefore($el);
+        $label = $('<label class="placeHolder ' + ' textarea ' + required + '" for="' + forId + '">' + placeholder + '</label>').insertBefore($el);
       } else {
-        placeholder = $('<label class="placeHolder ' + required + '" for="' + forId + '">' + placeholderText + '</label>').insertBefore($el);
+        $label = $('<label class="placeHolder ' + required + '" for="' + forId + '">' + placeholder + '</label>').insertBefore($el);
       }
       // checks to see if inputs are pre-populated and adds active to span.placeholder
       setState();
