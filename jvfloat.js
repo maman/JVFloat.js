@@ -25,7 +25,7 @@
 
       // adds a different class tag for text areas (.jvFloat .placeHolder.textarea) 
       // to allow better positioning of the element for multiline text area inputs
-      var $label = '';
+      var $label = null;
 
       function setState() {
         // change span.placeHolder to span.placeHolder.active
@@ -59,15 +59,18 @@
         $el.prop('id', id);
         return id;
       }
-      if (!forId) {
-        forId = createIdOnElement($el);
+      if (!el.getAttribute('id')) {
+        el.setAttribute('id', createIdOnElement($el));
       }
 
-      if ($(this).is('textarea')) {
-        $label = $('<label class="placeHolder ' + ' textarea ' + required + '" for="' + forId + '">' + placeholder + '</label>').insertBefore($el);
-      } else {
-        $label = $('<label class="placeHolder ' + required + '" for="' + forId + '">' + placeholder + '</label>').insertBefore($el);
-      }
+      $label = $('<label>', {
+        "class": 'placeHolder ' + (el.tagName == 'TEXTAREA' ? 'textarea' : '') + required,
+        "for": el.getAttribute('id'),
+        "text": placeholder
+      });
+
+      $label.insertBefore($el);
+
       // checks to see if inputs are pre-populated and adds active to span.placeholder
       setState();
       $el.bind('keyup blur', setState);
