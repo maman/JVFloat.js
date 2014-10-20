@@ -11,14 +11,18 @@
   // Init Plugin Functions
   $.fn.jvFloat = function _jv_float_plugin() {
     // Check input type - filter submit buttons.
-    return this.filter('input:not([type=submit]), textarea, select').each(function _jv_float_each() {
-      var $el = $(this),
+    return this.each(function _jv_float_each() {
+      var
+        $el = $(this),
         el = $el[0], // native element
         placeholder = el.getAttribute("placeholder") || el.getAttribute("title"), // get placeholder with native function
-        forId = $el.attr('id'),
-
         // added `required` input detection and state
-        required = $el.attr('required') || '';
+        required = el.getAttribute('required') || '';
+
+      // use tagName to define supported elements
+      if (!(~['INPUT', 'TEXTAREA', 'SELECT'].indexOf(el.tagName)) || el.getAttribute('type') == 'submit') {
+        return false;
+      }
 
       // Wrap the input in div.jvFloat
       $el.wrap('<div class=jvFloat>');
