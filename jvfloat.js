@@ -27,6 +27,8 @@
       // to allow better positioning of the element for multiline text area inputs
       var $label = null;
 
+      generate_id();
+
       function setState() {
         // change span.placeHolder to span.placeHolder.active
         var currentValue = $el.val();
@@ -43,24 +45,18 @@
       }
 
       /**
-       * Generate a unique id
-       * @return {string} id generated
+       * Generate a unique id if element not has one
        */
       function generate_id() {
-        // if window don't have UUID, create with 1, else append one each time
-        !('JVFLOAT_UUID' in window) ? window.JVFLOAT_UUID = 1 : window.JVFLOAT_UUID += 1;
 
-        return [namespace, window.JVFLOAT_UUID].join('__');
+        if (!el.getAttribute('id')) {
 
-      }
+          // if window don't have UUID, create with 1, else append one each time
+          !('JVFLOAT_UUID' in window) ? window.JVFLOAT_UUID = 1 : window.JVFLOAT_UUID += 1;
 
-      function createIdOnElement($el) {
-        var id = generate_id();
-        $el.prop('id', id);
-        return id;
-      }
-      if (!el.getAttribute('id')) {
-        el.setAttribute('id', createIdOnElement($el));
+          el.setAttribute('id', [namespace, window.JVFLOAT_UUID].join('__'));
+
+        }
       }
 
       $label = $('<label>', {
