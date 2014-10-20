@@ -3,13 +3,13 @@
  * modified on: 18/09/2014
  */
 
-(function ($) {
+(function _jv_float_module($) {
   'use strict';
 
   // Init Plugin Functions
-  $.fn.jvFloat = function () {
+  $.fn.jvFloat = function _jv_float_plugin() {
     // Check input type - filter submit buttons.
-    return this.filter('input:not([type=submit]), textarea, select').each(function () {
+    return this.filter('input:not([type=submit]), textarea, select').each(function _jv_float_each() {
       function getPlaceholderText($el) {
         var text = $el.attr('placeholder');
 
