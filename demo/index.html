@@ -14,9 +14,15 @@
     <input type="text" placeholder="Username">
     <input type="text" placeholder="Required" required>
     <input type="text" placeholder="Has ID" id="testid">
+    <input type="text" placeholder="Has ID" value='ll'>
+    <select name="my_select" title='My select'>
+      <option value="" selected> My select </option>
+      <option value="01">AA</option>
+      <option value="02">BB</option>
+    </select>
     <div class='jvFloat'>
       <!-- i have a correct html model -->
-      <label></label>
+      <label class=''></label>
       <input type="text" placeholder="Has ID" id="testid">
     </div>
     <textarea placeholder="Textarea!"></textarea>
@@ -24,6 +30,6 @@
     <input type="submit">
 </body>
 <script>
-	$('input, textarea').jvFloat();
+	$('input, textarea, select').jvFloat();
 </script>
 </html>

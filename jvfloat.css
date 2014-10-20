@@ -52,6 +52,10 @@
 	transition: transform 100ms, opacity 120ms, visibility 120ms;
 	opacity: 1;
 }
+.jvFloat .placeHolder.visible {
+	color: #333333;
+}
+
 /* End CSS3 */
 
 /* Legacy browser */

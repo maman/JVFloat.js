@@ -55,19 +55,19 @@
       }
 
 
-      function setState() {
+      function setState(ev) {
         // change span.placeHolder to span.placeHolder.active
-        var currentValue = $el.val();
+        var currentValue = $el.val() || '',
+          toggle = currentValue !== '';
 
-        if (currentValue == null) {
-          currentValue = '';
-        } else if ($el.is('select')) {
-          if (placeholder == currentValue) {
-            currentValue = '';
-          }
+        if (ev && ev.type == 'blur' || !ev) {
+          $label.toggleClass('visible', toggle);
+        } else if (ev.type == 'keyup') {
+          $label.removeClass('visible');
+
         }
 
-        $label.toggleClass('active', currentValue !== '');
+        $label.toggleClass('active', toggle);
       }
 
       /**
@@ -85,12 +85,9 @@
         }
       }
 
-
-
-
       // checks to see if inputs are pre-populated and adds active to span.placeholder
       setState();
-      $el.bind('keyup blur', setState);
+      $el.bind('keyup blur change', setState);
     });
   };
   // Make Zeptojs & jQuery Compatible
