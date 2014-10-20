@@ -82,4 +82,4 @@
     });
   };
   // Make Zeptojs & jQuery Compatible
-})(window.jQuery || window.Zepto || window.$, window);
+})(window.jQuery || window.Zepto, window);
