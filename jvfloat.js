@@ -12,26 +12,48 @@
   $.fn.jvFloat = function _jv_float_plugin() {
     // Check input type - filter submit buttons.
     return this.each(function _jv_float_each() {
+      // create basic variables
       var
         $el = $(this),
-        el = $el[0], // native element
-        placeholder = el.getAttribute("placeholder") || el.getAttribute("title"), // get placeholder with native function
-        // added `required` input detection and state
-        required = el.getAttribute('required') || '';
+        el = $el[0]; // native element
 
-      // use tagName to define supported elements
+      // use tagName to define supported elements, if unsuported, break
       if (!(~['INPUT', 'TEXTAREA', 'SELECT'].indexOf(el.tagName)) || el.getAttribute('type') == 'submit') {
         return false;
       }
 
-      // Wrap the input in div.jvFloat
-      $el.wrap('<div class=jvFloat>');
-
-      // adds a different class tag for text areas (.jvFloat .placeHolder.textarea) 
-      // to allow better positioning of the element for multiline text area inputs
-      var $label = null;
-
+      // fix properties
       generate_id();
+
+      // generate complete base structure
+      var
+        $parent = $el.parent('div.jvFloat'),
+        $label = $parent.find('label.placeHolder[for="' + el.getAttribute('id') + '"]'),
+        placeholder = el.getAttribute("placeholder") || el.getAttribute("title"), // get placeholder with native function
+        // added `required` input detection and state
+        required = el.getAttribute('required') || '';
+
+      // if parent div don't exists, create it
+      if ($parent.length == 0) {
+        // Wrap the input in div.jvFloat
+        $parent = $el.wrap('<div class=jvFloat>').parent('.jvFloat');
+      }
+
+      // if label for element don't exists, create it
+      if ($label.length == 0) {
+
+        // adds a different class tag for text areas (.jvFloat .placeHolder.textarea) 
+        // to allow better positioning of the element for multiline text area inputs
+        $label = $('<label>', {
+          "class": 'placeHolder ' + (el.tagName == 'TEXTAREA' ? 'textarea' : '') + required,
+          "for": el.getAttribute('id'),
+          "text": placeholder
+        });
+
+        $parent.prepend($label);
+
+      }
+
 
       function setState() {
         // change span.placeHolder to span.placeHolder.active
@@ -63,13 +85,8 @@
         }
       }
 
-      $label = $('<label>', {
-        "class": 'placeHolder ' + (el.tagName == 'TEXTAREA' ? 'textarea' : '') + required,
-        "for": el.getAttribute('id'),
-        "text": placeholder
-      });
 
-      $label.insertBefore($el);
+
 
       // checks to see if inputs are pre-populated and adds active to span.placeholder
       setState();
