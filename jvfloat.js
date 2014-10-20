@@ -3,8 +3,10 @@
  * modified on: 18/09/2014
  */
 
-(function _jv_float_module($) {
+(function _jv_float_module($, window) {
   'use strict';
+
+  var namespace = 'jv_float';
 
   // Init Plugin Functions
   $.fn.jvFloat = function _jv_float_plugin() {
@@ -37,16 +39,20 @@
         placeholder.toggleClass('active', currentValue !== '');
       }
 
-      function generateUIDNotMoreThan1million() {
-        var id = '';
-        do {
-          id = ('0000' + (Math.random() * Math.pow(36, 4) << 0).toString(36)).substr(-4);
-        } while (!!$('#' + id).length);
-        return id;
+      /**
+       * Generate a unique id
+       * @return {string} id generated
+       */
+      function generate_id() {
+        // if window don't have UUID, create with 1, else append one each time
+        !('JVFLOAT_UUID' in window) ? window.JVFLOAT_UUID = 1 : window.JVFLOAT_UUID += 1;
+
+        return [namespace, window.JVFLOAT_UUID].join('__');
+
       }
 
       function createIdOnElement($el) {
-        var id = generateUIDNotMoreThan1million();
+        var id = generate_id();
         $el.prop('id', id);
         return id;
       }
@@ -76,4 +82,4 @@
     });
   };
   // Make Zeptojs & jQuery Compatible
-})(window.jQuery || window.Zepto || window.$);
+})(window.jQuery || window.Zepto || window.$, window);
