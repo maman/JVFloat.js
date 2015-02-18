@@ -1,4 +1,6 @@
 #JVFloat.js - [Demo](http://bootsnipp.com/iframe/OvV)
+
+[![Join the chat at https://gitter.im/maman/JVFloat.js](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/maman/JVFloat.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/maman/jvfloat.js/trend.png)](https://bitdeli.com/free "Bitdeli Badge")  
 
 jQuery and Zepto plugin to emulate the behavior of [JVFloatLabeledTextField](https://github.com/jverdi/JVFloatLabeledTextField) which based on the concept from [Matt D. Smith](http://dribbble.com/shots/1254439--GIF-Mobile-Form-Interaction?list=users).
