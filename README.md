@@ -64,6 +64,7 @@ JVFloat uses CSS3 [Transform](https://developer.mozilla.org/en-US/docs/Web/CSS/t
 
 #Changelog
 
+* 23/07/2015 - Merged wiredep and label fixes from @ahmadalfy. bump version.
 * 15/04/2014 - Release first stable version of JVFloat.js . add ability to redefine CSS on multiline `textarea`, thanks to @Jackobyte for the pull request. Also now JVFloat has a grunt-based build system.
 * 31/01/2014 - JVFloat now uses actual `<label>` elements to improve accessbility. thanks to @MrSnowflake for the pull request
 * 21/12/2013 - Code refactoring. thanks to @eskimoblood for the pull request

@@ -1,6 +1,6 @@
 {
   "name": "JVFloat",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "a jQuery plugin to transform input's placeholder into a floated placeholder",
   "author": "Achmad Mahardi <achmad@mahardi.me>",
   "devDependencies": {
