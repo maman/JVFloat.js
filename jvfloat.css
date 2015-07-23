@@ -31,6 +31,7 @@
 	transition: transform 150ms, opacity 100ms, visibility 100ms;
 	opacity: 0;
 	visibility: hidden;
+	white-space: nowrap;
 }
 
 /*Allows textarea floating placeholder to be positioned distinctly from the normal .placeHolder class
